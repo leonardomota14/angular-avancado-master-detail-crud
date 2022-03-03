@@ -1,7 +1,7 @@
 <nav class="mb-5">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
-    <li class="breadcrumb-item"><a routerLink="/Categories">Categorias</a></li>
+    <li class="breadcrumb-item"><a routerLink="/categories">Categorias</a></li>
     <li class="breadcrumb-item active">Formulário de Categoria</li>
   </ol>
 </nav>
@@ -9,7 +9,7 @@
 <div class="row mb-4">
   <div class="col-md">
     <h1 class="h2 border-left pl-2">
-      Fromuário de Categoria
+      {{pageTitle}}
     </h1>
   </div>
   <div class="col-md">
@@ -19,7 +19,7 @@
   </div>
 </div>
 
-<form>
+<form [formGroup]="categoryForm">
 
   <div class="card">
     <div class="card-header">
