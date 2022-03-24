@@ -11,7 +11,7 @@ export class Entry {
   categoryId?: number;
   category?: CategoryModel;
 
-  types: {
+  static types: {
     expense: 'Despesa',
     revenue: 'Receita'
   };
