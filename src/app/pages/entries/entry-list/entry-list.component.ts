@@ -14,10 +14,10 @@ export class EntryListComponent implements OnInit {
   constructor( private service: EntryService) { }
 
   ngOnInit() {
-    this.service.getAll().subscribe(entries => {
-      this.entries = entries,
-      () => alert('Erro ao carregar a lista de entradas!') 
-    })
+    this.service.getAll().subscribe(
+      entries => this.entries = entries.sort((a,b) => b.id - a.id),
+      err => alert('Erro ao carregar a lista de entradas!') 
+    )
   }
 
   deleteEntry(entry) {
