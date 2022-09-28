@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { EntryService } from './../shared/entry.service';
-import { Entry } from './../shared/entry.model';
+import { EntryModel } from './../shared/entry.model';
 
 @Component({
   selector: 'app-entry-list',
@@ -10,7 +10,7 @@ import { Entry } from './../shared/entry.model';
 })
 export class EntryListComponent implements OnInit {
 
-  entries: Entry[] = [];
+  entries: EntryModel[] = [];
   constructor( private service: EntryService) { }
 
   ngOnInit() {

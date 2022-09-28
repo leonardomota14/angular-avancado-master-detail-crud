@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit, AfterContentChecked } from '@angular/core';
 
-import { Entry } from './../shared/entry.model';
+import { EntryModel } from './../shared/entry.model';
 import { EntryService } from './../shared/entry.service';
 
 import { switchMap } from 'rxjs/operators';
@@ -22,7 +22,7 @@ export class EntryFormComponent implements OnInit, AfterContentChecked {
   pageTitle: string;
   serverErrorMessages: string[] = null;
   submittingForm: boolean = false;
-  entry: Entry = new Entry();
+  entry: EntryModel = new EntryModel();
   categories: Array<CategoryModel>;
 
   imaskConfig = {
@@ -77,7 +77,7 @@ export class EntryFormComponent implements OnInit, AfterContentChecked {
   }
 
   get typeOptions(): Array<any>{
-    return Object.entries(Entry.types).map(
+    return Object.entries(EntryModel.types).map(
       ([value, text]) => {
         return {
           text: text,
@@ -136,7 +136,7 @@ export class EntryFormComponent implements OnInit, AfterContentChecked {
   }
 
   private createEntry() {
-    const entry: Entry = Object.assign(this.entryForm.value);
+    const entry: EntryModel = Object.assign(this.entryForm.value);
     this.service.create(entry).subscribe(
       ent => this.actionsForSuccess(ent),
       error => this.actionsForErrors(error)
@@ -144,14 +144,14 @@ export class EntryFormComponent implements OnInit, AfterContentChecked {
   }
 
   private updateEntry() {
-    const entry: Entry = Object.assign(this.entryForm.value);
+    const entry: EntryModel = Object.assign(this.entryForm.value);
     this.service.update(entry).subscribe(
       ent => this.actionsForSuccess(ent),
       error => this.actionsForErrors(error)
     );
   }
 
-  private actionsForSuccess(entry: Entry) {
+  private actionsForSuccess(entry: EntryModel) {
     toastr.success('Solicitação processada com sucesso!');
     //redirect/reload component page
     this.router.navigateByUrl('entries', {skipLocationChange: true}).then(

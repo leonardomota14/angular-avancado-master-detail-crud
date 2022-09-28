@@ -1,7 +1,7 @@
 import { BaseResourceModel } from "src/app/shared/models/base-resource.model";
 import { CategoryModel } from '../../categories/shared/category.model';
 
-export class Entry extends BaseResourceModel {
+export class EntryModel extends BaseResourceModel {
   constructor(
     public id?:number, 
     public name?: string,
