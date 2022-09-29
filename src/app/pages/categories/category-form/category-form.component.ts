@@ -33,7 +33,7 @@ export class CategoryFormComponent extends BaseResourceFormComponent<CategoryMod
   }
 
   protected EditionPageTitle(): string {
-    const categoryName = this.resource.name || "";
-    return `Editando Categoria: ${categoryName}`;
+    const resourceName = this.resource.name || "";
+    return `Editando Categoria: ${resourceName}`;
   }
 }
